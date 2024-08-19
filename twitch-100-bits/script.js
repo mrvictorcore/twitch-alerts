@@ -1,12 +1,12 @@
-// Obtener configuraciones desde fields.json
-const name = '{{name}}';
-const amount = '{{amount}}';
-const usernameColor = '{{usernameColor}}';
-const messageText = '{{messageText}}';
-const fontChoice = '{{fontChoice}}';
-const starColor = '{{starColor}}';
-const soundFile = '{{soundFile}}';
-const starImage = '{{starImage}}';  // URL de la imagen de la estrella personalizada
+// Obtener configuraciones desde fields.json o definir manualmente para pruebas locales
+const name = 'UsuarioEjemplo'; // '{{name}}'
+const amount = '100'; // '{{amount}}'
+const usernameColor = '#00ffff'; // '{{usernameColor}}'
+const messageText = '¡Gracias por tus bits!'; // '{{messageText}}'
+const fontChoice = 'Nunito'; // '{{fontChoice}}'
+const starColor = '#ff00ff'; // '{{starColor}}'
+const starImage = 'https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png'; // '{{starImage}}'
+const soundFile = 'https://mrvictorcore.github.io/twitch-alerts/accets/Sounds/coin-donation-1-180437.mp3'; // '{{soundFile}}'
 
 // Obtener elementos del DOM
 const alertUserName = document.querySelector('#alert-username');
@@ -27,24 +27,26 @@ alertMessage.textContent = `¡Gracias, ${name}, por tus ${amount} bits!`;
 // Configurar la imagen de la estrella
 if (starImage && starImage !== '') {
     starElement.src = starImage;  // Reemplazar con la URL proporcionada
+} else {
+    starElement.src = 'https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png';  // Usar la predeterminada
 }
 
 // Configurar el archivo de sonido
-audioElement.src = soundFile;
+if (soundFile && soundFile !== '') {
+    audioElement.src = soundFile;
+}
 
-// Agregar un listener de clic para forzar la reproducción del audio
-document.addEventListener('click', function() {
+// Función para mostrar la alerta y reproducir el sonido
+function showAlertAndPlaySound() {
+    document.querySelector('.alert-container').style.opacity = 1;
     audioElement.volume = 1.0;
     audioElement.play().catch(error => {
         console.error('Error al reproducir el audio:', error);
     });
-});
+}
 
-// Mostrar la alerta y reproducir el sonido
-setTimeout(function() {
-    document.querySelector('.alert-container').style.opacity = 1;
-    audioElement.volume = 1.0;  // Asegúrate de que el volumen esté al máximo
-    audioElement.play().catch(error => {
-        console.error('Error al reproducir el audio:', error);
-    });
-}, 1000);
+// Esperar a la interacción del usuario para mostrar la alerta y reproducir el sonido
+document.addEventListener('click', function() {
+    // Iniciar la animación y sonido inmediatamente después de la interacción
+    showAlertAndPlaySound();
+});

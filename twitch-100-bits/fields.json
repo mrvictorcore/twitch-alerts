@@ -22,11 +22,11 @@
     "soundFile": {
         "type": "text",
         "label": "URL del archivo de sonido",
-        "value": "https://tusonido.com/sonido.mp3"
+        "value": "https://mrvictorcore.github.io/twitch-alerts/accets/Sounds/coin-donation-1-180437.mp3"
     },
     "starImage": {
         "type": "text",
         "label": "URL de la imagen de la estrella",
-        "value": "https://tusitio.com/estrella.png"
+        "value": "https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png"
     }
 }

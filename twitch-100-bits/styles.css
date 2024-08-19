@@ -13,23 +13,23 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     opacity: 0;
-    animation: fadeInOut 5s ease-in-out forwards;
+    animation: fadeInOut 10s ease-in-out forwards; /* Animación de desvanecimiento de 10 segundos */
 }
 
 .alert-container .star {
     width: 150px;
     height: auto;
-    animation: bounce 1s infinite;
-}
-
-.star-path {
-    animation: colorChange 0.5s infinite alternate;
+    animation: bounce 1s infinite, colorChangeStar 1s infinite alternate; /* Cambio de color cada 1 segundo */
 }
 
 .alert-text {
-    font-size: 24px;
+    font-size: 48px; /* Tamaño aumentado del texto */
     margin-top: 10px;
-    animation: colorChange 1s infinite alternate;
+    animation: colorChangeText 1s infinite alternate; /* Cambio de color cada 1 segundo */
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5), /* Sombra sutil y suave */
+        -2px -2px 4px rgba(255, 255, 255, 0.2); /* Sombra clara para un efecto de luz */
+    color: #ffffff; /* Texto en blanco por defecto */
 }
 
 @keyframes bounce {
@@ -41,18 +41,27 @@ body {
     }
 }
 
-@keyframes colorChange {
+@keyframes colorChangeStar {
     0% {
-        fill: #ff00ff;
-        color: #ff00ff;
+        filter: hue-rotate(0deg) brightness(1.2); /* Rojo o color inicial */
     }
     50% {
-        fill: #00ffff;
-        color: #00ffff;
+        filter: hue-rotate(200deg) brightness(1.5); /* Azul específico */
     }
     100% {
-        fill: #ffff00;
-        color: #ffff00;
+        filter: hue-rotate(260deg) brightness(1.2); /* Azul oscuro a violeta */
+    }
+}
+
+@keyframes colorChangeText {
+    0% {
+        color: #ff00ff; /* Magenta */
+    }
+    50% {
+        color: #00ffff; /* Cian */
+    }
+    100% {
+        color: #ffff00; /* Amarillo */
     }
 }
 
