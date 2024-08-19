@@ -1,0 +1,32 @@
+{
+    "usernameColor": {
+        "type": "color",
+        "label": "Color del nombre de usuario",
+        "value": "#00ffff"
+    },
+    "messageText": {
+        "type": "text",
+        "label": "Texto de agradecimiento",
+        "value": "¡Gracias por tus bits!"
+    },
+    "fontChoice": {
+        "type": "googleFont",
+        "label": "Fuente del texto",
+        "value": "Nunito"
+    },
+    "starColor": {
+        "type": "colorpicker",
+        "label": "Color de la estrella (solo si es SVG)",
+        "value": "#ff00ff"
+    },
+    "soundFile": {
+        "type": "text",
+        "label": "URL del archivo de sonido",
+        "value": "https://tusonido.com/sonido.mp3"
+    },
+    "starImage": {
+        "type": "text",
+        "label": "URL de la imagen de la estrella",
+        "value": "https://tusitio.com/estrella.png"
+    }
+}

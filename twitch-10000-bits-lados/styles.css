@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #1f1f1f;
+    background-color: transparent; /* Fondo transparente */
     color: #ffffff;
     font-family: 'Arial', sans-serif;
     height: 100vh;
@@ -9,9 +9,9 @@ body {
 
 .alert-container {
     position: absolute;
-    bottom: -100px; /* Empieza fuera de la vista desde abajo */
+    bottom: 50%; /* Ajustado para centrar verticalmente */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 50%);
     text-align: center;
     opacity: 0;
     animation: fadeInOut 10s ease-in-out forwards, slideUp 5s ease-in-out forwards;
@@ -39,7 +39,7 @@ body {
 
 .star {
     position: absolute;
-    width: 40px;
+    width: 40px; /* Tamaño de la estrella ajustado */
     height: 40px;
     top: 50%;
     transform-origin: center;
