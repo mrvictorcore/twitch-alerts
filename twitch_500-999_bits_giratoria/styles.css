@@ -29,7 +29,7 @@ body {
     top: 50%;
     left: 50%;
     transform-origin: center -125px;
-    animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite, colorChange 3s infinite alternate;
 }
 
 .left-star {
@@ -44,14 +44,34 @@ body {
     transform: translate(-50%, -125px) rotate(240deg);
 }
 
-.star-path {
-    animation: colorChange 0.5s infinite alternate;
+.alert-text {
+    font-size: 36px;
+    margin-top: 10px;
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
-.alert-text {
-    font-size: 24px;
+#user-message {
+    font-size: 36px;
     margin-top: 10px;
-    animation: colorChange 1s infinite alternate;
+    animation: colorChangeText 1s infinite alternate;
+  	text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+#alert-username,
+#alert-amount,
+#cheer-amount {
+    animation: colorChangeText 1s infinite alternate;
+  	text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 @keyframes rotate {
@@ -74,15 +94,24 @@ body {
 
 @keyframes colorChange {
     0% {
-        fill: #ff00ff;
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    50% {
+        filter: hue-rotate(180deg) brightness(1.5);
+    }
+    100% {
+        filter: hue-rotate(360deg) brightness(1);
+    }
+}
+
+@keyframes colorChangeText {
+    0% {
         color: #ff00ff;
     }
     50% {
-        fill: #00ffff;
         color: #00ffff;
     }
     100% {
-        fill: #ffff00;
         color: #ffff00;
     }
 }
