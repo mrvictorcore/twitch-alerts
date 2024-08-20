@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alerta de Bits</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="alert-container">
-        <!-- SVG de una Estrella -->
-        <!-- <svg class="star" width="150" height="150" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L14.09 8.26L20 9.27L15.5 13.97L16.91 20L12 16.77L7.09 20L8.5 13.97L4 9.27L9.91 8.26L12 2Z" class="star-path"/>
-        </svg> -->
-        <!-- Imagen de una Estrella -->
-        <img class="star" src="https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png" alt="Star Image" width="150" height="150">
-        <div class="alert-text">¡Gracias, <span id="alert-username"></span>, por tus <span id="alert-amount"></span> bits!</div>
+<div class="alert-container">
+    <img class="star" src="{{starImage}}" alt="Star Image" width="150" height="150">
+    <div class="alert-text">
+      ¡Gracias, <span id="alert-username">{{name}}</span>, por tus <span id="alert-amount">{{amount}}</span> bits!
     </div>
-    
-    <!-- Audio de agradecimiento -->
-    <audio id="coin-sound">
-        <source src="https://mrvictorcore.github.io/twitch-alerts/accets/Sounds/coin-donation-1-180437.mp3" type="audio/mpeg">
-    </audio>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <p id="user-message">
+      <img src="https://static-cdn.jtvnw.net/bits/dark/animated/1/1" alt="Cheer1 Icon" id="cheer-icon" style="vertical-align: middle; width: 24px;">
+      <span id="cheer-amount"></span>
+    </p>
+</div>

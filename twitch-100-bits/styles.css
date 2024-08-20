@@ -1,9 +1,11 @@
-body {
+@import url('https://cdn.streamelements.com/scripts/animate.min.css');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+* body {
     margin: 0;
     overflow: hidden;
     background-color: transparent; /* Fondo transparente */
     color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .alert-container {
@@ -12,7 +14,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    opacity: 0;
+    opacity: 0; /* Inicia invisible */
     animation: fadeInOut 10s ease-in-out forwards; /* Animación de desvanecimiento de 10 segundos */
 }
 
@@ -30,6 +32,12 @@ body {
         2px 2px 4px rgba(0, 0, 0, 0.5), /* Sombra sutil y suave */
         -2px -2px 4px rgba(255, 255, 255, 0.2); /* Sombra clara para un efecto de luz */
     color: #ffffff; /* Texto en blanco por defecto */
+}
+
+#user-message {
+    font-size: 24px; /* Tamaño del mensaje personalizado */
+    margin-top: 10px;
+    animation: fadeInOut 10s ease-in-out forwards; /* Animación de desvanecimiento junto con el contenedor principal */
 }
 
 @keyframes bounce {
@@ -69,7 +77,10 @@ body {
     0% {
         opacity: 0;
     }
-    20%, 80% {
+    10% {
+        opacity: 1;
+    }
+    90% {
         opacity: 1;
     }
     100% {

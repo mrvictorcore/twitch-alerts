@@ -14,11 +14,6 @@
         "label": "Fuente del texto",
         "value": "Nunito"
     },
-    "starColor": {
-        "type": "colorpicker",
-        "label": "Color de la estrella (solo si es SVG)",
-        "value": "#ff00ff"
-    },
     "soundFile": {
         "type": "text",
         "label": "URL del archivo de sonido",
@@ -28,5 +23,10 @@
         "type": "text",
         "label": "URL de la imagen de la estrella",
         "value": "https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png"
+    },
+    "message": {
+        "type": "text",
+        "label": "Mensaje personalizado",
+        "value": ""
     }
 }

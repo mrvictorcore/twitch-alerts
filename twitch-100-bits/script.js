@@ -1,52 +1,47 @@
-// Obtener configuraciones desde fields.json o definir manualmente para pruebas locales
-const name = 'UsuarioEjemplo'; // '{{name}}'
-const amount = '100'; // '{{amount}}'
-const usernameColor = '#00ffff'; // '{{usernameColor}}'
-const messageText = '¡Gracias por tus bits!'; // '{{messageText}}'
-const fontChoice = 'Nunito'; // '{{fontChoice}}'
-const starColor = '#ff00ff'; // '{{starColor}}'
-const starImage = 'https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png'; // '{{starImage}}'
-const soundFile = 'https://mrvictorcore.github.io/twitch-alerts/accets/Sounds/coin-donation-1-180437.mp3'; // '{{soundFile}}'
+// Obtener configuraciones desde la inyección de StreamElements
+const name = '{{name}}';
+const amount = '{{amount}}'; // Mantenerlo como cadena de texto simple
+const usernameColor = '{{usernameColor}}';
+const fontChoice = '{{fontChoice}}';
 
 // Obtener elementos del DOM
 const alertUserName = document.querySelector('#alert-username');
 const alertAmount = document.querySelector('#alert-amount');
-const alertMessage = document.querySelector('.alert-text');
-const starElement = document.querySelector('.star');
-const audioElement = document.getElementById('coin-sound');
+const cheerAmountElement = document.querySelector('#cheer-amount');
+const userMessageElement = document.querySelector('#user-message');
+
+// Capturar el mensaje insertado por StreamElements
+let rawMessage = userMessageElement.textContent || '';
+
+// Función para establecer la cantidad de bits
+function setAmount(amount) {
+    // Simplemente retorna la cantidad tal como viene sin modificación
+    return amount;
+}
+
+// Establecer la cantidad final
+let finalAmount = setAmount(amount);
 
 // Rellenar el contenido de la alerta con los datos
 alertUserName.textContent = name;
 alertAmount.textContent = amount;
+cheerAmountElement.textContent = finalAmount;
 
 // Aplicar las configuraciones de estilo y texto
 alertUserName.style.color = usernameColor;
-alertMessage.style.fontFamily = fontChoice;
-alertMessage.textContent = `¡Gracias, ${name}, por tus ${amount} bits!`;
+userMessageElement.style.fontFamily = fontChoice;
 
-// Configurar la imagen de la estrella
-if (starImage && starImage !== '') {
-    starElement.src = starImage;  // Reemplazar con la URL proporcionada
-} else {
-    starElement.src = 'https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png';  // Usar la predeterminada
-}
+// Mostrar el mensaje
+userMessageElement.style.display = 'block';
 
-// Configurar el archivo de sonido
-if (soundFile && soundFile !== '') {
-    audioElement.src = soundFile;
-}
-
-// Función para mostrar la alerta y reproducir el sonido
+// Función para reproducir el sonido
 function showAlertAndPlaySound() {
-    document.querySelector('.alert-container').style.opacity = 1;
+    const audioElement = document.getElementById('coin-sound');
     audioElement.volume = 1.0;
     audioElement.play().catch(error => {
         console.error('Error al reproducir el audio:', error);
     });
 }
 
-// Esperar a la interacción del usuario para mostrar la alerta y reproducir el sonido
-document.addEventListener('click', function() {
-    // Iniciar la animación y sonido inmediatamente después de la interacción
-    showAlertAndPlaySound();
-});
+// Iniciar la animación y sonido inmediatamente después de la carga
+showAlertAndPlaySound();
