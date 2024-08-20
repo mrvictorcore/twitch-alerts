@@ -4,10 +4,9 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: transparent;
+    background-color: transparent; /* Fondo transparente */
     color: #ffffff;
     font-family: 'Arial', sans-serif;
-    height: 100vh;
 }
 
 .alert-container {
@@ -18,39 +17,44 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInOut 10s ease-in-out forwards;
-    z-index: 10;
 }
 
-.star-rain {
+.orbit {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    animation: rotate 5s linear infinite; /* Cambié de 10s a 5s para aumentar la velocidad */
+}
+
+.alert-container .star {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    animation: colorChange 10s infinite alternate;
 }
 
-.star, .shark {
-    position: absolute;
-    animation: fall 5s linear infinite, colorChange 1s infinite alternate;
+.left-star {
+    transform: rotate(0deg) translateX(-100px) translateY(-50%);
 }
 
-.star {
-    width: 50px;
-    height: 50px;
+.middle-star {
+    transform: rotate(120deg) translateX(-100px) translateY(-50%);
 }
 
-.shark {
-    width: 100px;
-    height: 100px;
+.right-star {
+    transform: rotate(240deg) translateX(-100px) translateY(-50%);
 }
 
 .alert-text {
     font-size: 36px;
     margin-top: 10px;
     animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 #user-message {
@@ -73,14 +77,22 @@ body {
     color: #ffffff;
 }
 
-@keyframes fall {
+.elegant-star {
+    position: absolute;
+    top: -100px; /* Ajusta la posición para que esté pegada al texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* Aumenta aún más el tamaño de la imagen */
+    height: 400px; /* Aumenta aún más el tamaño de la imagen */
+    animation: fadeInOut 10s ease-in-out forwards; /* Conserva la animación */
+}
+
+@keyframes rotate {
     0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 1;
+        transform: rotate(0deg);
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+        transform: rotate(360deg);
     }
 }
 
@@ -112,7 +124,7 @@ body {
     0% {
         opacity: 0;
     }
-    10%, 90% {
+    20%, 80% {
         opacity: 1;
     }
     100% {

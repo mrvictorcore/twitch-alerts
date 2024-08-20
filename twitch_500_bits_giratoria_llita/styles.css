@@ -77,6 +77,16 @@
     color: #ffffff;
 }
 
+.elegant-star {
+    position: absolute;
+    top: -50px; /* Ajusta la posición para que esté pegada al texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* Aumenta aún más el tamaño de la imagen */
+    height: 400px; /* Aumenta aún más el tamaño de la imagen */
+    animation: fadeInOut 10s ease-in-out forwards; /* Conserva la animación */
+}
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);

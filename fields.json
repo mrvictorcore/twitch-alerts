@@ -29,6 +29,11 @@
         "label": "URL de la imagen del tiburón",
         "value": "https://mrvictorcore.github.io/twitch-alerts/accets/img/tiburon_bailando.webp"
     },
+    "elegantStarImage": {
+        "type": "text",
+        "label": "URL de la imagen de la estrellita elegante",
+        "value": "https://mrvictorcore.github.io/twitch-alerts/accets/img/estrellita_elegante.png"
+    },
     "message": {
         "type": "text",
         "label": "Mensaje personalizado",

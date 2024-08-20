@@ -36,6 +36,16 @@ body {
     animation: colorChangeText 1s infinite alternate;
 }
 
+.elegant-star {
+    position: absolute;
+    top: -300px; /* Ajusta la posición para que esté pegada al texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* Aumenta aún más el tamaño de la imagen */
+    height: 400px; /* Aumenta aún más el tamaño de la imagen */
+    animation: fadeInOut 10s ease-in-out forwards; /* Conserva la animación */
+}
+
 .star-movement {
     position: absolute;
     width: 100%;

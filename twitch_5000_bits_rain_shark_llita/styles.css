@@ -4,7 +4,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: transparent; /* Fondo transparente */
+    background-color: transparent;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
     height: 100vh;
@@ -18,7 +18,7 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInOut 10s ease-in-out forwards;
-    z-index: 10; /* Asegura que el texto esté por encima de las estrellas */
+    z-index: 10;
 }
 
 .star-rain {
@@ -29,30 +29,28 @@ body {
     left: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: 1; /* Estrellas detrás del texto */
+    z-index: 1;
 }
 
-.star-orbit {
+.star, .shark {
     position: absolute;
-    width: 250px;  /* Tamaño aumentado para cubrir más espacio */
-    height: 250px; /* Tamaño aumentado para cubrir más espacio */
-    animation: circulate 10s linear infinite, fall 10s linear infinite;
+    animation: fall 5s linear infinite, colorChange 1s infinite alternate;
 }
 
 .star {
-    position: absolute;
-    width: 50px;  /* Tamaño de la estrella aumentado */
+    width: 50px;
     height: 50px;
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-    animation: spin 2s linear infinite, orbit 10s linear infinite, colorChange 1s infinite alternate;
+}
+
+.shark {
+    width: 100px;
+    height: 100px;
 }
 
 .alert-text {
     font-size: 36px;
     margin-top: 10px;
-    animation: colorChange 1s infinite alternate;
+    animation: colorChangeText 1s infinite alternate;
 }
 
 #user-message {
@@ -75,36 +73,33 @@ body {
     color: #ffffff;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.elegant-star {
+    position: absolute;
+    top: -300px; /* Ajusta la posición para que esté pegada al texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* Aumenta aún más el tamaño de la imagen */
+    height: 400px; /* Aumenta aún más el tamaño de la imagen */
+    animation: fadeInOut 10s ease-in-out forwards; /* Conserva la animación */
 }
 
-@keyframes orbit {
+@keyframes fall {
     0% {
-        transform: rotate(0deg) translateX(100px);
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
     }
     100% {
-        transform: rotate(360deg) translateX(100px);
-    }
-}
-
-@keyframes circulate {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100vh);
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
     }
 }
 
 @keyframes colorChange {
     0% {
         filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(180deg);
     }
     100% {
         filter: hue-rotate(360deg);
