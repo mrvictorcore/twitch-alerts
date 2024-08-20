@@ -1,4 +1,7 @@
-body {
+@import url('https://cdn.streamelements.com/scripts/animate.min.css');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+* body {
     margin: 0;
     overflow: hidden;
     background-color: transparent; /* Fondo transparente */

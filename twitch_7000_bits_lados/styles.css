@@ -1,3 +1,6 @@
+@import url('https://cdn.streamelements.com/scripts/animate.min.css');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 body {
     margin: 0;
     overflow: hidden;
@@ -19,10 +22,17 @@ body {
 }
 
 .alert-text {
-    font-size: 48px; /* Tamaño del texto aumentado */
+    font-size: 36px; /* Tamaño del texto aumentado */
     font-weight: bold;
     color: #ff00ff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00; /* Efecto 3D */
+    animation: colorChangeText 1s infinite alternate;
+}
+
+#alert-username,
+#alert-amount,
+#cheer-amount {
+  	font-size: 36px;
     animation: colorChangeText 1s infinite alternate;
 }
 
@@ -66,19 +76,10 @@ body {
 
 @keyframes colorChangeStar {
     0% {
-        fill: #ff0000;
-    }
-    25% {
-        fill: #00ff00;
-    }
-    50% {
-        fill: #0000ff;
-    }
-    75% {
-        fill: #ffff00;
+        filter: hue-rotate(0deg);
     }
     100% {
-        fill: #ff00ff;
+        filter: hue-rotate(360deg);
     }
 }
 

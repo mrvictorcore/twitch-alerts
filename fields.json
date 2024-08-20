@@ -24,6 +24,11 @@
         "label": "URL de la imagen de la estrella",
         "value": "https://mrvictorcore.github.io/twitch-alerts/accets/img/star_image_normal.png"
     },
+    "sharkImage": {
+        "type": "text",
+        "label": "URL de la imagen del tiburón",
+        "value": "https://mrvictorcore.github.io/twitch-alerts/accets/img/tiburon_bailando.webp"
+    },
     "message": {
         "type": "text",
         "label": "Mensaje personalizado",

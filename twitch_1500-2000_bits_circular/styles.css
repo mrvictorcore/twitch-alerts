@@ -4,7 +4,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: transparent;
+    background-color: transparent; /* Fondo transparente */
     color: #ffffff;
     font-family: 'Arial', sans-serif;
 }
@@ -16,22 +16,38 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     opacity: 0;
-    animation: fadeInOut 5s ease-in-out forwards;
+    animation: fadeInOut 10s ease-in-out forwards;
+}
+
+.orbit {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    animation: rotate 5s linear infinite; /* Cambié de 10s a 5s para aumentar la velocidad */
 }
 
 .alert-container .star {
-    width: 150px;
-    height: auto;
-    animation: bounce 1s infinite, spin 2s linear infinite, colorChange 2s infinite alternate;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform-origin: center;
-    filter: hue-rotate(0deg);
+    animation: colorChange 10s infinite alternate;
 }
 
-.alert-text,
-#user-message,
-#alert-username,
-#alert-amount,
-#cheer-amount {
+.left-star {
+    transform: rotate(0deg) translateX(-100px) translateY(-50%);
+}
+
+.middle-star {
+    transform: rotate(120deg) translateX(-100px) translateY(-50%);
+}
+
+.right-star {
+    transform: rotate(240deg) translateX(-100px) translateY(-50%);
+}
+
+.alert-text {
     font-size: 36px;
     margin-top: 10px;
     animation: colorChangeText 1s infinite alternate;
@@ -41,16 +57,27 @@ body {
     color: #ffffff;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+#user-message {
+    font-size: 36px;
+    margin-top: 10px;
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
-@keyframes spin {
+#alert-username,
+#alert-amount,
+#cheer-amount {
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+@keyframes rotate {
     0% {
         transform: rotate(0deg);
     }

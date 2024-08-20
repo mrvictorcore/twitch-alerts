@@ -1,3 +1,6 @@
+@import url('https://cdn.streamelements.com/scripts/animate.min.css');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 body {
     margin: 0;
     overflow: hidden;
@@ -47,9 +50,29 @@ body {
 }
 
 .alert-text {
-    font-size: 24px;
+    font-size: 36px;
     margin-top: 10px;
     animation: colorChange 1s infinite alternate;
+}
+
+#user-message {
+    font-size: 36px;
+    margin-top: 10px;
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+#alert-username,
+#alert-amount,
+#cheer-amount {
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 @keyframes spin {
@@ -81,15 +104,21 @@ body {
 
 @keyframes colorChange {
     0% {
-        fill: #ff00ff;
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes colorChangeText {
+    0% {
         color: #ff00ff;
     }
     50% {
-        fill: #00ffff;
         color: #00ffff;
     }
     100% {
-        fill: #ffff00;
         color: #ffff00;
     }
 }
@@ -103,4 +132,5 @@ body {
     }
     100% {
         opacity: 0;
-    }}
+    }
+}

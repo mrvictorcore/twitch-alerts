@@ -1,10 +1,10 @@
 @import url('https://cdn.streamelements.com/scripts/animate.min.css');
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-body {
+* body {
     margin: 0;
     overflow: hidden;
-    background-color: transparent;
+    background-color: transparent; /* Fondo transparente */
     color: #ffffff;
     font-family: 'Arial', sans-serif;
 }
@@ -22,18 +22,40 @@ body {
 .alert-container .star {
     width: 150px;
     height: auto;
-    animation: bounce 1s infinite, spin 2s linear infinite, colorChange 2s infinite alternate;
-    transform-origin: center;
-    filter: hue-rotate(0deg);
+    animation: bounce 1s infinite, colorChange 5s infinite alternate;
 }
 
-.alert-text,
-#user-message,
+.left-star {
+    margin-right: 10px;
+}
+
+.right-star {
+    margin-left: 10px;
+}
+
+.alert-text {
+    font-size: 36px;
+    margin-top: 10px;
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+#user-message {
+    font-size: 36px;
+    margin-top: 10px;
+    animation: colorChangeText 1s infinite alternate;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
 #alert-username,
 #alert-amount,
 #cheer-amount {
-    font-size: 36px;
-    margin-top: 10px;
     animation: colorChangeText 1s infinite alternate;
     text-shadow: 
         2px 2px 4px rgba(0, 0, 0, 0.5),
@@ -47,15 +69,6 @@ body {
     }
     50% {
         transform: translateY(-20px);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
     }
 }
 
